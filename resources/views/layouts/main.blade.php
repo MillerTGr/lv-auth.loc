@@ -30,18 +30,23 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
-                        </li>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">Зарегистрироваться</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
-                        </li>
                     @endif
                 @endif
+            </ul>
+            <ul class="navbar-nav me-right mb-2 mb-lg-0">
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                </li>
+            @endif
             </ul>
         </div>
     </div>
