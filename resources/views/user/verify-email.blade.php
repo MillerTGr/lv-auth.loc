@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
-@section('title', 'Home page')
+@section('title', 'Регистрация')
 
 @section('content')
     <div class="alert alert-info" role="alert">
-        Thank you for registering! A link to confirm your registration has been sent to your email.
+        Спасибо за регистрацию! Ссылка для подтверждения аккаунта была отправлена на email
     </div>
     <div>
-        Didn't receive the link?
+        Не получили ссылку?
         <form method="post" action="{{ route('verification.send') }}">
             @csrf
-            <button type="submit" class="btn btn-link ps-0">Send link</button>
+            <button type="submit" class="btn btn-link ps-0">Отправить ещё раз</button>
         </form>
     </div>
 

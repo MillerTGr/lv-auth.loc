@@ -26,7 +26,6 @@ class UserController extends Controller
         event(new Registered($user));
         Auth::login($user);
 
-        # return redirect()->route('login')->with('success', 'Successfully registration');  # С сообщением об успешной регистрации
         return redirect()->route('verification.notice');
     }
 
@@ -61,6 +60,7 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        return view('user.dashboard');
+        $users = User::all(['name', 'email', 'email_verified_at']);
+        return view('user.dashboard', compact('users'));
     }
 }
